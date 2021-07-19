@@ -21,12 +21,11 @@ const WonderfulArrangementShow = (props) => {
                 >
                     <View style={styles.centeredView}>
                         <View style={styles.modalView}>
-                            <Card style={styles.flowerContainer}>
                                 <Image
                                     source={{ uri: `${image}` }}
-                                    resizeMode="cover"
-                                    style={styles.cardImage}
-                                /></Card>
+                                    resizeMode="contain"
+                                    style={styles.cardImageHide}
+                                />
 
                             <Text style={styles.modalText}>{name}</Text>
                             <Text style={styles.modalText}>{description}</Text>
@@ -61,20 +60,24 @@ const WonderfulArrangementShow = (props) => {
             </Card>
         </View>
 
-       
+
     );
 };
 const styles = StyleSheet.create({
-    screen:{
-      width:'90%',
-      marginLeft:'5%',
-      marginRight:'5%'
+    screen: {
+        width: '90%',
+        marginLeft: '5%',
+        marginRight: '5%'
     },
     cardImage: {
         width: '100%',
         height: 180,
         borderTopLeftRadius: 9,
         borderTopRightRadius: 9
+    },
+    cardImageHide: {
+        width: '100%',
+        height: 100
     },
     name: {
         textAlign: 'left'
@@ -91,6 +94,14 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         marginTop: 22
+    },
+    flowerContainer: {
+        width: '100%',
+        flex:1
+    },
+    flowerContainerHide: {
+        width: '100%',
+        flex:1
     },
     modalView: {
         margin: 20,

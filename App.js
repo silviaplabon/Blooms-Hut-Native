@@ -1,15 +1,13 @@
-import { StatusBar } from 'expo-status-bar';
+import { StatusBar, StyleSheet } from 'react-native';
 import React, { useState } from 'react';
-import { Button, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
-import FlowersCollection from './components/FlowersCollection/FlowersCollection';
-import Header from './components/Header/Header'
-import HeaderMain from './components/HeaderMain/HeaderMain';
 import { useFonts } from "expo-font";
-import About from './components/About/About';
-import WonderfulArrangement from './components/WonderfulArrangements/WonderfulArrangements'
-
+import Navigator from './components/Route/Drawer/drawer'
+import { useEffect } from 'react/cjs/react.development';
 
 export default function App() {
+  useEffect(() => {
+    StatusBar.setHidden(true);
+  }), []
   const [loaded] = useFonts({
     "Roboto-Black": require("./assets/fonts/Roboto-Black.ttf"),
     "Roboto-Bold": require("./assets/fonts/Roboto-Bold.ttf"),
@@ -18,8 +16,8 @@ export default function App() {
     "Philosopher-Regular": require("./assets/fonts/Philosopher-Regular.ttf"),
     "DancingScript-Bold": require("./assets/fonts/DancingScript-Bold.ttf"),
     "DancingScript-Regular": require("./assets/fonts/DancingScript-Regular.ttf"),
-    "BonaNova-Regular" : require("./assets/fonts/BonaNova-Regular.ttf"),
-    "BonaNova-Bold" : require("./assets/fonts/BonaNova-Bold.ttf"),
+    "BonaNova-Regular": require("./assets/fonts/BonaNova-Regular.ttf"),
+    "BonaNova-Bold": require("./assets/fonts/BonaNova-Bold.ttf"),
     "Dosis-Regular": require("./assets/fonts/Dosis-Regular.ttf"),
     "Dosis-Bold": require("./assets/fonts/Dosis-Bold.ttf"),
   });
@@ -28,13 +26,7 @@ export default function App() {
     return null;
   }
   return (
-    <ScrollView >
-      <Header />
-      <HeaderMain></HeaderMain>
-      <About></About>
-      <FlowersCollection></FlowersCollection>
-      <WonderfulArrangement></WonderfulArrangement>
-    </ScrollView>
+    <Navigator />
   );
 }
 

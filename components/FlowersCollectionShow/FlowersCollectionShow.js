@@ -22,8 +22,9 @@ const FlowersCollectionShow = (props) => {
         //                         <h6><FontAwesomeIcon icon={faComment} className="commentsIcon me-1"></FontAwesomeIcon>{comments}</h6>
         //                     </div>
         //                 }
+        
    
-        <View style={styles.screen}>
+        <View style={styles.screen} > 
             <Card style={styles.flowerContainer}>
                 <Image
                     source={{ uri: `${previewURL}` }}

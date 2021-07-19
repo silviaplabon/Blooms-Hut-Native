@@ -21,6 +21,7 @@ const HeaderMain = () => {
             <ImageBackground source={image} resizeMode="cover" style={styles.image}>
                 <View style={{ marginTop: 30, flexDirection: 'row', padding: 15 }}>
                     <View style={styles.searchContainer}>
+                      
                         <Icon name="search" size={30} style={{ color: 'black', paddingLeft: 10 }} />
                         <TextInput placeholder="Search" style={styles.input} />
                     </View>
@@ -64,14 +65,8 @@ const styles = StyleSheet.create({
         fontFamily: "DancingScript-Bold"
     },
     shopNow: {
-        // marginLeft: '35%',
-        // marginRight: '35%',
         alignItems: 'center',
         justifyContent: 'center',
-        paddingVertical: 12,
-        paddingHorizontal: 32,
-        borderRadius: 4,
-        elevation: 3,
     },
     shopButton: {
         fontFamily: "DancingScript-Bold",
