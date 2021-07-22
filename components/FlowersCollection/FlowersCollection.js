@@ -1,15 +1,11 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { FlatList } from 'react-native';
 import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
-
-// import { useHistory } from 'react-router-dom';
-// import { UserContext } from '../../../App';
+import { UserContext } from '../../App';
 import FlowersCollectionShow from '../FlowersCollectionShow/FlowersCollectionShow'
 
-const FlowersCollection = () => {
-
-    // const history = useHistory()
-    // const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+const FlowersCollection = ({ navigation }) => {
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const [flowersData, setFlowersData] = useState([]);
     const [numberOfData, setNumberOfData] = useState(10);
     const [visible, setVisible] = useState(true);
@@ -42,6 +38,9 @@ const FlowersCollection = () => {
         }
     }
 
+    const userNotLoggedIn=()=>{
+        alert('Please Login for this service')
+    }
 
 
     return (
@@ -66,23 +65,30 @@ const FlowersCollection = () => {
                 }
             >
             </FlatList>
-            <Button title="Load More" color="#a03c3a"  buttonStyle={styles.button}  onPress={() => sliceImageOperation()}></Button>
+    
             {
-                visible == false && <Text>END of Result</Text>
+                visible == true ?
+                    <View>
+                        {
+                            loggedInUser == true?
+                                <Button title="Load More" color="#a03c3a" buttonStyle={styles.button} onPress={() => sliceImageOperation()}/> :
+                                <Button title="Load More" color="#a03c3a" buttonStyle={styles.button} onPress={() => userNotLoggedIn()}/>
+                        }
+                    </View > : <Text>END of Result</Text>
             }
-        </View>
+        </View >
     );
 };
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-         backgroundColor: '#fff0e9',
+        backgroundColor: '#fff0e9',
         alignItems: 'center',
         justifyContent: 'center',
         width: '100%',
         paddingBottom: 50,
-        paddingLeft:'2%',
-        paddingRight:'2%'
+        paddingLeft: '2%',
+        paddingRight: '2%'
     },
     cardContainer: {
         flex: 1,
@@ -94,16 +100,16 @@ const styles = StyleSheet.create({
         color: 'black',
         fontFamily: "Philosopher-Bold"
     },
-    headerSubtitle:{
+    headerSubtitle: {
         fontSize: 13,
         color: 'black',
         fontFamily: "DancingScript-Bold"
     },
     button: {
-        marginTop:10,
+        marginTop: 10,
         borderWidth: 5,
-        borderRadius: 15       
-     }
+        borderRadius: 15
+    }
 })
 
 export default FlowersCollection;

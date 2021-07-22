@@ -6,6 +6,7 @@ import HeaderMain from '../HeaderMain/HeaderMain';
 import WonderfulArrangements from '../WonderfulArrangements/WonderfulArrangements';
 
 const Home = () => {
+   
     return (
         <ScrollView >
             <HeaderMain></HeaderMain>

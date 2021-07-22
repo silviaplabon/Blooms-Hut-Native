@@ -1,10 +1,16 @@
 import { StatusBar, StyleSheet } from 'react-native';
-import React, { useState } from 'react';
+import React, { useEffect, useState,createContext } from 'react';
 import { useFonts } from "expo-font";
 import Navigator from './components/Route/Drawer/drawer'
-import { useEffect } from 'react/cjs/react.development';
+
+export const UserContext = createContext();
+
+
+
+
 
 export default function App() {
+  const [loggedInUser, setLoggedInUser] = useState(false);
   useEffect(() => {
     StatusBar.setHidden(true);
   }), []
@@ -26,7 +32,9 @@ export default function App() {
     return null;
   }
   return (
-    <Navigator />
+    <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
+      <Navigator />
+    </UserContext.Provider>
   );
 }
 

@@ -4,8 +4,6 @@ import { createAppContainer } from "react-navigation"
 import { createStackNavigator } from "react-navigation-stack"
 import Header from '../../shared/Header'
 import Home from '../../Home/Home'
-import Review from '../Review'
-
 
 const screens = {
     Home: {
