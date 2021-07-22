@@ -39,7 +39,6 @@ const Register = ({ navigation }) => {
     return (
         <KeyboardAvoidingView behavior="padding" style={styles.container}>
             <StatusBar style="light" />
-                <ImageBackground source={image} resizeMode="cover" style={styles.registerBackground}>
                     <Text h3 style={{ marginBottom: 50, textAlign: 'center', fontFamily: "Philosopher-Bold" }}>
                         Create an account
                     </Text>
@@ -67,7 +66,6 @@ const Register = ({ navigation }) => {
                         />
                     </View>
                     <Button containerStyle={styles.button} raised onPress={register} title="Register"></Button>
-                </ImageBackground>
         </KeyboardAvoidingView>
     )
 }
@@ -81,12 +79,15 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         padding: 10,
         backgroundColor: 'white'
+        
     },
     inputContainer: {
-        width: 290,
+        width:'70%',
+        justifyContent:'center',
+        alignItems:'center'
     },
     registerBackground:{
-        width:310,
+        width:'100%',
         paddingTop:15,
         paddingBottom:15,
         justifyContent:'center',
@@ -94,7 +95,7 @@ const styles = StyleSheet.create({
         margin:10
     },
     button: {
-        width: 270,
+        width: '65%',
         marginTop: 10,
         backgroundColor:'#ef3c48'
     }
